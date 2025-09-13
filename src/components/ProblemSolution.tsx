@@ -8,36 +8,36 @@ const ProblemSolution: React.FC = () => {
   const problems = [
     {
       icon: Clock,
-      title: "Tareas Repetitivas",
-      description: "Tu equipo pierde tiempo en actividades que podrían automatizarse"
+      title: "Repetitive Tasks",
+      description: "Your team wastes time on activities that could be automated"
     },
     {
       icon: DollarSign,
-      title: "Pérdida de Oportunidades",
-      description: "Ventas perdidas por horarios limitados y atención no escalable"
+      title: "Lost Opportunities",
+      description: "Lost sales due to limited hours and non-scalable customer service"
     },
     {
       icon: Users,
-      title: "Atención Limitada",
-      description: "Soporte al cliente restringido a horarios de oficina"
+      title: "Limited Support",
+      description: "Customer support restricted to office hours"
     }
   ];
 
   const solutions = [
     {
       icon: Zap,
-      title: "Clones Digitales 24/7",
-      description: "Tus clones trabajan sin descanso, atendiendo clientes en cualquier momento"
+      title: "24/7 Digital Clones",
+      description: "Your clones work tirelessly, serving customers at any time"
     },
     {
       icon: CheckCircle,
-      title: "Automatización Completa",
-      description: "Procesos que antes requerían horas, ahora se completan en segundos"
+      title: "Complete Automation",
+      description: "Processes that used to take hours are now completed in seconds"
     },
     {
       icon: Users,
-      title: "Escalabilidad Infinita",
-      description: "Atiende a miles de clientes simultáneamente sin aumentar tu equipo"
+      title: "Infinite Scalability",
+      description: "Serve thousands of customers simultaneously without expanding your team"
     }
   ];
 
@@ -52,11 +52,11 @@ const ProblemSolution: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            El problema que <span className="text-green-600">resolvemos</span>
+            The problem we <span className="text-green-600">solve</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Las empresas modernas enfrentan desafíos que limitan su crecimiento. 
-            Nuestros clones digitales son la solución definitiva.
+            Modern companies face challenges that limit their growth. 
+            Our digital clones are the definitive solution.
           </p>
         </motion.div>
 
@@ -73,7 +73,7 @@ const ProblemSolution: React.FC = () => {
               <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
                 <AlertTriangle className="w-6 h-6 text-red-600" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900">Problemas Actuales</h3>
+              <h3 className="text-2xl font-bold text-gray-900">Current Problems</h3>
             </div>
             
             <div className="space-y-6">
@@ -110,7 +110,7 @@ const ProblemSolution: React.FC = () => {
               <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
                 <CheckCircle className="w-6 h-6 text-green-600" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900">Nuestra Solución</h3>
+              <h3 className="text-2xl font-bold text-gray-900">Our Solution</h3>
             </div>
             
             <div className="space-y-6">
@@ -145,12 +145,12 @@ const ProblemSolution: React.FC = () => {
           className="text-center mt-16"
         >
           <div className="bg-gradient-to-r from-green-600 to-green-700 rounded-2xl p-8 text-white">
-            <h3 className="text-2xl font-bold mb-4">¿Listo para transformar tu empresa?</h3>
+            <h3 className="text-2xl font-bold mb-4">Ready to transform your business?</h3>
             <p className="text-green-100 mb-6 max-w-2xl mx-auto">
-              Descubre cómo nuestros clones digitales pueden revolucionar tu negocio en solo 30 días.
+              Discover how our digital clones can revolutionize your business in just 30 days.
             </p>
             <button className="bg-white text-green-600 hover:bg-green-50 px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-300">
-              Solicitar Consulta Gratuita
+              Request Free Consultation
             </button>
           </div>
         </motion.div>

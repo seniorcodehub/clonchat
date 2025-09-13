@@ -9,49 +9,49 @@ const HowItWorks: React.FC = () => {
     {
       number: "01",
       icon: Upload,
-      title: "Entrenamiento",
-      description: "Sube tus datos, graba tu voz y video. Nuestra IA aprende tu estilo único de comunicación.",
+      title: "Training",
+      description: "Upload your data, record your voice and video. Our AI learns your unique communication style.",
       details: [
-        "Carga documentos y presentaciones",
-        "Graba muestras de voz",
-        "Proporciona videos de presentación",
-        "Define tu personalidad y tono"
+        "Upload documents and presentations",
+        "Record voice samples",
+        "Provide presentation videos",
+        "Define your personality and tone"
       ]
     },
     {
       number: "02",
       icon: Brain,
-      title: "Creación",
-      description: "Nuestra IA construye tu clon digital con todas tus capacidades y conocimientos.",
+      title: "Creation",
+      description: "Our AI builds your digital clone with all your capabilities and knowledge.",
       details: [
-        "Procesamiento de datos con IA",
-        "Síntesis de voz personalizada",
-        "Generación de avatar digital",
-        "Entrenamiento del modelo de lenguaje"
+        "AI data processing",
+        "Custom voice synthesis",
+        "Digital avatar generation",
+        "Language model training"
       ]
     },
     {
       number: "03",
       icon: Zap,
-      title: "Implementación",
-      description: "Integramos tu clon en tu web, WhatsApp, redes sociales y sistemas existentes.",
+      title: "Implementation",
+      description: "We integrate your clone into your website, WhatsApp, social media and existing systems.",
       details: [
-        "Integración con tu sitio web",
-        "Conexión con WhatsApp Business",
-        "Configuración de chatbots",
-        "Sincronización con CRM"
+        "Website integration",
+        "WhatsApp Business connection",
+        "Chatbot configuration",
+        "CRM synchronization"
       ]
     },
     {
       number: "04",
       icon: CheckCircle,
-      title: "Optimización",
-      description: "Monitoreamos y mejoramos continuamente el rendimiento de tu clon digital.",
+      title: "Optimization",
+      description: "We continuously monitor and improve your digital clone's performance.",
       details: [
-        "Análisis de conversaciones",
-        "Mejoras automáticas",
-        "Reportes de rendimiento",
-        "Actualizaciones continuas"
+        "Conversation analysis",
+        "Automatic improvements",
+        "Performance reports",
+        "Continuous updates"
       ]
     }
   ];
@@ -67,10 +67,10 @@ const HowItWorks: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Cómo <span className="text-green-600">funciona</span>
+            How it <span className="text-green-600">works</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Un proceso simple en 4 pasos para crear tu clon digital perfecto
+            A simple 4-step process to create your perfect digital clone
           </p>
         </motion.div>
 
@@ -167,12 +167,12 @@ const HowItWorks: React.FC = () => {
           className="text-center mt-16"
         >
           <div className="bg-white rounded-2xl p-8 shadow-lg border border-green-100 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">¿Listo para comenzar?</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Ready to get started?</h3>
             <p className="text-gray-600 mb-6">
-              El proceso completo toma solo 2-3 semanas. Tu clon digital estará listo para trabajar.
+              The complete process takes only 2-3 weeks. Your digital clone will be ready to work.
             </p>
             <button className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-300">
-              Iniciar Proceso
+              Start Process
             </button>
           </div>
         </motion.div>

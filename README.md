@@ -189,7 +189,7 @@ Este proyecto está bajo la Licencia MIT. Ver `LICENSE` para más detalles.
 
 ## 📞 Contacto
 
-- **Email**: hola@clonchat.com
+- **Email**: info@clonchat.com
 - **Teléfono**: +1 (555) 123-4567
 - **Ubicación**: San Francisco, CA
 

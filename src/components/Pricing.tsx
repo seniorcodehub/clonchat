@@ -10,21 +10,21 @@ const Pricing: React.FC = () => {
   const plans = [
     {
       name: "Starter",
-      description: "Perfecto para pequeñas empresas que quieren comenzar",
+      description: "Perfect for small businesses that want to get started",
       monthlyPrice: 299,
       annualPrice: 249,
       features: [
-        "1 clon digital",
-        "Hasta 1,000 conversaciones/mes",
-        "Integración básica (Web + WhatsApp)",
-        "Soporte por email",
-        "Entrenamiento básico",
-        "Reportes básicos"
+        "1 digital clone",
+        "Up to 1,000 conversations/month",
+        "Basic integration (Web + WhatsApp)",
+        "Email support",
+        "Basic training",
+        "Basic reports"
       ],
       limitations: [
-        "Sin personalización avanzada",
-        "Sin integración CRM",
-        "Sin soporte prioritario"
+        "No advanced customization",
+        "No CRM integration",
+        "No priority support"
       ],
       color: "from-gray-500 to-gray-600",
       bgColor: "bg-gray-50",
@@ -33,22 +33,22 @@ const Pricing: React.FC = () => {
     },
     {
       name: "Professional",
-      description: "Ideal para empresas en crecimiento",
+      description: "Ideal for growing companies",
       monthlyPrice: 799,
       annualPrice: 649,
       features: [
-        "3 clones digitales",
-        "Hasta 10,000 conversaciones/mes",
-        "Integración completa (Web, WhatsApp, CRM)",
-        "Soporte prioritario 24/7",
-        "Entrenamiento personalizado",
-        "Reportes avanzados y analytics",
-        "Personalización de avatares",
-        "API completa"
+        "3 digital clones",
+        "Up to 10,000 conversations/month",
+        "Complete integration (Web, WhatsApp, CRM)",
+        "24/7 priority support",
+        "Custom training",
+        "Advanced reports and analytics",
+        "Avatar customization",
+        "Complete API"
       ],
       limitations: [
-        "Sin soporte dedicado",
-        "Sin integraciones personalizadas"
+        "No dedicated support",
+        "No custom integrations"
       ],
       color: "from-green-500 to-green-600",
       bgColor: "bg-green-50",
@@ -57,21 +57,21 @@ const Pricing: React.FC = () => {
     },
     {
       name: "Enterprise",
-      description: "Para grandes empresas con necesidades específicas",
+      description: "For large companies with specific needs",
       monthlyPrice: 1999,
       annualPrice: 1599,
       features: [
-        "Clones ilimitados",
-        "Conversaciones ilimitadas",
-        "Todas las integraciones disponibles",
-        "Soporte dedicado 24/7",
-        "Entrenamiento completo del equipo",
-        "Dashboard personalizado",
-        "Avatares ultra-realistas",
-        "API completa + webhooks",
-        "Integraciones personalizadas",
-        "SLA garantizado",
-        "Consultoría estratégica"
+        "Unlimited clones",
+        "Unlimited conversations",
+        "All available integrations",
+        "24/7 dedicated support",
+        "Complete team training",
+        "Custom dashboard",
+        "Ultra-realistic avatars",
+        "Complete API + webhooks",
+        "Custom integrations",
+        "Guaranteed SLA",
+        "Strategic consulting"
       ],
       limitations: [],
       color: "from-purple-500 to-purple-600",
@@ -83,23 +83,23 @@ const Pricing: React.FC = () => {
 
   const addOns = [
     {
-      name: "Conversaciones Adicionales",
-      description: "Paquete de 1,000 conversaciones extra",
+      name: "Additional Conversations",
+      description: "Package of 1,000 extra conversations",
       price: 99
     },
     {
-      name: "Integración Personalizada",
-      description: "Desarrollo de integración específica para tu sistema",
+      name: "Custom Integration",
+      description: "Development of specific integration for your system",
       price: 299
     },
     {
-      name: "Soporte Dedicado",
-      description: "Asignación de un especialista dedicado a tu cuenta",
+      name: "Dedicated Support",
+      description: "Assignment of a dedicated specialist to your account",
       price: 199
     },
     {
-      name: "Entrenamiento Avanzado",
-      description: "Sesiones de entrenamiento personalizado para tu equipo",
+      name: "Advanced Training",
+      description: "Custom training sessions for your team",
       price: 149
     }
   ];
@@ -115,16 +115,16 @@ const Pricing: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Planes de <span className="text-green-600">precios</span>
+            Pricing <span className="text-green-600">plans</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            Elige el plan que mejor se adapte a las necesidades de tu empresa
+            Choose the plan that best fits your company's needs
           </p>
           
           {/* Billing Toggle */}
           <div className="flex items-center justify-center space-x-4">
             <span className={`text-lg ${!isAnnual ? 'text-gray-900 font-semibold' : 'text-gray-500'}`}>
-              Mensual
+              Monthly
             </span>
             <button
               onClick={() => setIsAnnual(!isAnnual)}
@@ -139,11 +139,11 @@ const Pricing: React.FC = () => {
               />
             </button>
             <span className={`text-lg ${isAnnual ? 'text-gray-900 font-semibold' : 'text-gray-500'}`}>
-              Anual
+              Annual
             </span>
             {isAnnual && (
               <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
-                Ahorra 20%
+                Save 20%
               </span>
             )}
           </div>
@@ -178,10 +178,10 @@ const Pricing: React.FC = () => {
                     <div className="text-5xl font-bold text-gray-900">
                       ${isAnnual ? plan.annualPrice : plan.monthlyPrice}
                     </div>
-                    <div className="text-gray-600">/mes</div>
+                    <div className="text-gray-600">/month</div>
                     {isAnnual && (
                       <div className="text-sm text-green-600 font-medium mt-1">
-                        Ahorra ${(plan.monthlyPrice - plan.annualPrice) * 12}/año
+                        Save ${(plan.monthlyPrice - plan.annualPrice) * 12}/year
                       </div>
                     )}
                   </div>
@@ -210,7 +210,7 @@ const Pricing: React.FC = () => {
                     ? 'bg-green-600 hover:bg-green-700 text-white'
                     : 'bg-white text-gray-900 border-2 border-gray-300 hover:border-green-600 hover:text-green-600'
                 }`}>
-                  {plan.name === 'Enterprise' ? 'Contactar Ventas' : 'Comenzar Ahora'}
+                  {plan.name === 'Enterprise' ? 'Contact Sales' : 'Get Started Now'}
                 </button>
               </div>
             </motion.div>
@@ -226,7 +226,7 @@ const Pricing: React.FC = () => {
           className="mb-16"
         >
           <h3 className="text-3xl font-bold text-center text-gray-900 mb-8">
-            Servicios <span className="text-green-600">adicionales</span>
+            Additional <span className="text-green-600">services</span>
           </h3>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -259,28 +259,28 @@ const Pricing: React.FC = () => {
           className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100"
         >
           <h3 className="text-3xl font-bold text-center text-gray-900 mb-8">
-            Preguntas <span className="text-green-600">frecuentes</span>
+            Frequently Asked <span className="text-green-600">Questions</span>
           </h3>
           
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h4 className="text-lg font-semibold text-gray-900 mb-2">¿Puedo cambiar de plan en cualquier momento?</h4>
-              <p className="text-gray-600">Sí, puedes actualizar o degradar tu plan en cualquier momento. Los cambios se reflejan en tu próxima facturación.</p>
+              <h4 className="text-lg font-semibold text-gray-900 mb-2">Can I change plans at any time?</h4>
+              <p className="text-gray-600">Yes, you can upgrade or downgrade your plan at any time. Changes are reflected in your next billing cycle.</p>
             </div>
             
             <div>
-              <h4 className="text-lg font-semibold text-gray-900 mb-2">¿Hay período de prueba?</h4>
-              <p className="text-gray-600">Ofrecemos 14 días de prueba gratuita para todos nuestros planes. No se requiere tarjeta de crédito.</p>
+              <h4 className="text-lg font-semibold text-gray-900 mb-2">Is there a trial period?</h4>
+              <p className="text-gray-600">We offer a 14-day free trial for all our plans. No credit card required.</p>
             </div>
             
             <div>
-              <h4 className="text-lg font-semibold text-gray-900 mb-2">¿Qué incluye el soporte?</h4>
-              <p className="text-gray-600">El soporte incluye documentación completa, tutoriales en video y asistencia por email. Los planes superiores incluyen soporte prioritario.</p>
+              <h4 className="text-lg font-semibold text-gray-900 mb-2">What does support include?</h4>
+              <p className="text-gray-600">Support includes complete documentation, video tutorials and email assistance. Higher plans include priority support.</p>
             </div>
             
             <div>
-              <h4 className="text-lg font-semibold text-gray-900 mb-2">¿Puedo cancelar en cualquier momento?</h4>
-              <p className="text-gray-600">Sí, puedes cancelar tu suscripción en cualquier momento. No hay penalizaciones ni cargos ocultos.</p>
+              <h4 className="text-lg font-semibold text-gray-900 mb-2">Can I cancel at any time?</h4>
+              <p className="text-gray-600">Yes, you can cancel your subscription at any time. No penalties or hidden charges.</p>
             </div>
           </div>
         </motion.div>
@@ -294,12 +294,12 @@ const Pricing: React.FC = () => {
           className="text-center mt-16"
         >
           <div className="bg-gradient-to-r from-green-600 to-green-700 rounded-2xl p-8 text-white">
-            <h3 className="text-3xl font-bold mb-4">¿No estás seguro del plan correcto?</h3>
+            <h3 className="text-3xl font-bold mb-4">Not sure about the right plan?</h3>
             <p className="text-green-100 text-lg mb-6 max-w-2xl mx-auto">
-              Nuestro equipo de expertos te ayudará a elegir el plan perfecto para tu empresa
+              Our team of experts will help you choose the perfect plan for your company
             </p>
             <button className="bg-white text-green-600 hover:bg-green-50 px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-300 flex items-center mx-auto group">
-              Consultar con un Experto
+              Consult with an Expert
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>

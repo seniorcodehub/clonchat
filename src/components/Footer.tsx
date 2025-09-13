@@ -19,29 +19,20 @@ const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
+    sections: [
+      { name: 'How It Works', href: '#how-it-works' },
+      { name: 'Use Cases', href: '#use-cases' },
+      { name: 'Benefits', href: '#benefits' },
+      { name: 'Testimonials', href: '#testimonials' },
+      { name: 'Pricing', href: '#pricing' }
+    ],
     company: [
-      { name: 'Sobre Nosotros', href: '#' },
-      { name: 'Nuestro Equipo', href: '#' },
-      { name: 'Carreras', href: '#' },
-      { name: 'Prensa', href: '#' }
-    ],
-    product: [
-      { name: 'Características', href: '#' },
-      { name: 'Precios', href: '#' },
-      { name: 'Integraciones', href: '#' },
-      { name: 'API', href: '#' }
-    ],
-    resources: [
-      { name: 'Centro de Ayuda', href: '#' },
-      { name: 'Documentación', href: '#' },
-      { name: 'Blog', href: '#' },
-      { name: 'Casos de Éxito', href: '#' }
+      { name: 'About Us', href: '#hero' },
+      { name: 'Contact', href: '#contact' }
     ],
     legal: [
-      { name: 'Privacidad', href: '#' },
-      { name: 'Términos de Servicio', href: '#' },
-      { name: 'Cookies', href: '#' },
-      { name: 'GDPR', href: '#' }
+      { name: 'Privacy Policy', href: '#' },
+      { name: 'Terms of Service', href: '#' }
     ]
   };
 
@@ -68,15 +59,15 @@ const Footer: React.FC = () => {
           >
             <Logo />
             <p className="text-gray-300 mt-6 mb-6 leading-relaxed">
-              Revolucionamos la forma en que las empresas interactúan con sus clientes 
-              mediante clones digitales inteligentes que trabajan 24/7.
+              We revolutionize the way companies interact with their customers 
+              through intelligent digital clones that work 24/7.
             </p>
             
             {/* Contact Info */}
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-green-500" />
-                <span className="text-gray-300">hola@clonchat.com</span>
+                <span className="text-gray-300">info@clonchat.com</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-green-500" />
@@ -89,14 +80,37 @@ const Footer: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Company Links */}
+          {/* Site Sections */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-lg font-semibold mb-6">Empresa</h3>
+            <h3 className="text-lg font-semibold mb-6">Sections</h3>
+            <ul className="space-y-3">
+              {footerLinks.sections.map((link, index) => (
+                <li key={index}>
+                  <a 
+                    href={link.href} 
+                    className="text-gray-300 hover:text-green-500 transition-colors duration-300 flex items-center group"
+                  >
+                    {link.name}
+                    <ArrowRight className="w-4 h-4 ml-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Company Links */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-lg font-semibold mb-6">Company</h3>
             <ul className="space-y-3">
               {footerLinks.company.map((link, index) => (
                 <li key={index}>
@@ -112,16 +126,16 @@ const Footer: React.FC = () => {
             </ul>
           </motion.div>
 
-          {/* Product Links */}
+          {/* Legal */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-lg font-semibold mb-6">Producto</h3>
+            <h3 className="text-lg font-semibold mb-6">Legal</h3>
             <ul className="space-y-3">
-              {footerLinks.product.map((link, index) => (
+              {footerLinks.legal.map((link, index) => (
                 <li key={index}>
                   <a 
                     href={link.href} 
@@ -134,49 +148,6 @@ const Footer: React.FC = () => {
               ))}
             </ul>
           </motion.div>
-
-          {/* Resources & Legal */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="space-y-8"
-          >
-            <div>
-              <h3 className="text-lg font-semibold mb-6">Recursos</h3>
-              <ul className="space-y-3">
-                {footerLinks.resources.map((link, index) => (
-                  <li key={index}>
-                    <a 
-                      href={link.href} 
-                      className="text-gray-300 hover:text-green-500 transition-colors duration-300 flex items-center group"
-                    >
-                      {link.name}
-                      <ArrowRight className="w-4 h-4 ml-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold mb-6">Legal</h3>
-              <ul className="space-y-3">
-                {footerLinks.legal.map((link, index) => (
-                  <li key={index}>
-                    <a 
-                      href={link.href} 
-                      className="text-gray-300 hover:text-green-500 transition-colors duration-300 flex items-center group"
-                    >
-                      {link.name}
-                      <ArrowRight className="w-4 h-4 ml-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </motion.div>
         </div>
 
         {/* Newsletter Signup */}
@@ -188,18 +159,18 @@ const Footer: React.FC = () => {
           className="mt-16 pt-8 border-t border-gray-800"
         >
           <div className="max-w-2xl mx-auto text-center">
-            <h3 className="text-2xl font-bold mb-4">Mantente actualizado</h3>
+            <h3 className="text-2xl font-bold mb-4">Stay updated</h3>
             <p className="text-gray-300 mb-6">
-              Recibe las últimas noticias sobre IA, automatización y casos de éxito
+              Get the latest news about AI, automation and success stories
             </p>
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <input
                 type="email"
-                placeholder="Tu email"
+                placeholder="Your email"
                 className="flex-1 px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-green-500 transition-colors duration-300"
               />
               <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-300 flex items-center justify-center group">
-                Suscribirse
+                Subscribe
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
@@ -219,7 +190,7 @@ const Footer: React.FC = () => {
               viewport={{ once: true }}
               className="text-gray-400 text-sm"
             >
-              © {currentYear} Clonchat. Todos los derechos reservados.
+              © {currentYear} Clonchat. All rights reserved.
             </motion.div>
 
             {/* Social Links */}

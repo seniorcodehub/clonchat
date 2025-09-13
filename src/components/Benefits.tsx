@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Clock, 
@@ -13,6 +13,34 @@ import {
 } from 'lucide-react';
 
 const Benefits: React.FC = () => {
+  // ROI Calculator state
+  const [employees, setEmployees] = useState(5);
+  const [costPerEmployee, setCostPerEmployee] = useState(3000);
+  const [clonesNeeded, setClonesNeeded] = useState(1);
+
+  // Calculate ROI
+  const calculateSavings = () => {
+    const totalEmployeeCost = employees * costPerEmployee;
+    const cloneCost = clonesNeeded * 799; // Professional plan cost
+    const savings = totalEmployeeCost - cloneCost;
+    return Math.max(0, savings);
+  };
+
+  const calculateROI = () => {
+    const monthlySavings = calculateSavings();
+    const cloneCost = clonesNeeded * 799;
+    if (cloneCost === 0) return 0;
+    return (monthlySavings / cloneCost) * 100;
+  };
+
+  const getROITimeframe = () => {
+    const monthlySavings = calculateSavings();
+    const cloneCost = clonesNeeded * 799;
+    if (monthlySavings <= 0) return 'N/A';
+    const months = Math.ceil(cloneCost / monthlySavings);
+    return `${months} month${months > 1 ? 's' : ''}`;
+  };
+
   const benefits = [
     {
       icon: Clock,
@@ -198,27 +226,75 @@ const Benefits: React.FC = () => {
             </div>
             
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                <h4 className="text-xl font-semibold mb-4">Quick Calculator</h4>
+              <h4 className="text-xl font-semibold mb-4">ROI Calculator</h4>
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium mb-2">Current employees</label>
                   <input 
                     type="number" 
-                    className="w-full px-4 py-2 bg-white/20 border border-white/30 rounded-lg text-white placeholder-green-100"
+                    value={employees}
+                    onChange={(e) => setEmployees(Number(e.target.value) || 0)}
+                    className="w-full px-4 py-2 bg-white/20 border border-white/30 rounded-lg text-white placeholder-green-100 focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-200"
                     placeholder="5"
+                    min="0"
+                    max="100"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">Monthly cost per employee</label>
+                  <label className="block text-sm font-medium mb-2">Monthly cost per employee ($)</label>
                   <input 
                     type="number" 
-                    className="w-full px-4 py-2 bg-white/20 border border-white/30 rounded-lg text-white placeholder-green-100"
-                    placeholder="$3,000"
+                    value={costPerEmployee}
+                    onChange={(e) => setCostPerEmployee(Number(e.target.value) || 0)}
+                    className="w-full px-4 py-2 bg-white/20 border border-white/30 rounded-lg text-white placeholder-green-100 focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-200"
+                    placeholder="3000"
+                    min="0"
+                    max="50000"
                   />
                 </div>
-                <div className="bg-white/20 rounded-lg p-4">
-                  <div className="text-sm text-green-100 mb-1">Estimated savings</div>
-                  <div className="text-2xl font-bold">$15,000/month</div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">AI clones needed</label>
+                  <input 
+                    type="number" 
+                    value={clonesNeeded}
+                    onChange={(e) => setClonesNeeded(Number(e.target.value) || 0)}
+                    className="w-full px-4 py-2 bg-white/20 border border-white/30 rounded-lg text-white placeholder-green-100 focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all duration-200"
+                    placeholder="1"
+                    min="1"
+                    max="10"
+                  />
+                </div>
+                
+                {/* Results */}
+                <div className="space-y-3 pt-4 border-t border-white/20">
+                  <div className="bg-white/20 rounded-lg p-4">
+                    <div className="text-sm text-green-100 mb-1">Monthly savings</div>
+                    <div className="text-2xl font-bold">
+                      ${calculateSavings().toLocaleString()}/month
+                    </div>
+                  </div>
+                  
+                  <div className="bg-white/20 rounded-lg p-4">
+                    <div className="text-sm text-green-100 mb-1">ROI percentage</div>
+                    <div className="text-2xl font-bold">
+                      {calculateROI().toFixed(0)}%
+                    </div>
+                  </div>
+                  
+                  <div className="bg-white/20 rounded-lg p-4">
+                    <div className="text-sm text-green-100 mb-1">Payback period</div>
+                    <div className="text-2xl font-bold">
+                      {getROITimeframe()}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Additional Info */}
+                <div className="bg-green-500/20 border border-green-400/30 rounded-lg p-3 mt-4">
+                  <p className="text-sm text-green-100">
+                    <strong>Note:</strong> Based on Professional plan ($799/month per clone). 
+                    Actual savings may vary based on your specific use case.
+                  </p>
                 </div>
               </div>
             </div>
