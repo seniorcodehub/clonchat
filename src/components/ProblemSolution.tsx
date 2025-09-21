@@ -1,10 +1,16 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { AlertTriangle, CheckCircle, Clock, DollarSign, Users, Zap } from 'lucide-react';
+import ContactModal from './ContactModal';
 
 const ProblemSolution: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
   const problems = [
     {
       icon: Clock,
@@ -42,25 +48,25 @@ const ProblemSolution: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-12 md:py-20 bg-white">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
             The problem we <span className="text-green-600">solve</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
             Modern companies face challenges that limit their growth. 
             Our digital clones are the definitive solution.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
           {/* Problems */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -149,12 +155,23 @@ const ProblemSolution: React.FC = () => {
             <p className="text-green-100 mb-6 max-w-2xl mx-auto">
               Discover how our digital clones can revolutionize your business in just 30 days.
             </p>
-            <button className="bg-white text-green-600 hover:bg-green-50 px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-300">
+            <button 
+              onClick={handleOpenModal}
+              className="bg-white text-green-600 hover:bg-green-50 px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-300"
+            >
               Request Free Consultation
             </button>
           </div>
         </motion.div>
       </div>
+
+      {/* Contact Modal */}
+      <ContactModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        title="Request Free Consultation"
+        description="Discover how our digital clones can revolutionize your business in just 30 days."
+      />
     </section>
   );
 };

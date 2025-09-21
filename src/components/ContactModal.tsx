@@ -99,7 +99,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, title, des
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto"
           onClick={handleClose}
         >
           <motion.div
@@ -107,7 +107,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, title, des
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 relative"
+            className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 md:p-8 relative my-auto"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
@@ -120,22 +120,22 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, title, des
             </button>
 
             {/* Header */}
-            <div className="text-center mb-6">
+            <div className="text-center mb-4 md:mb-6">
               <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.2, type: "spring", damping: 15 }}
-                className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4"
+                className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4"
               >
-                <Mail className="w-8 h-8 text-white" />
+                <Mail className="w-6 h-6 md:w-8 md:h-8 text-white" />
               </motion.div>
               
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">{title}</h2>
-              <p className="text-gray-600">{description}</p>
+              <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">{title}</h2>
+              <p className="text-sm md:text-base text-gray-600">{description}</p>
             </div>
 
             {/* Form */}
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                   Email Address
@@ -148,7 +148,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, title, des
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="your@email.com"
                     disabled={isSubmitting}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full px-4 py-3 md:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-base"
                     required
                   />
                   <Mail className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
@@ -185,7 +185,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, title, des
                 disabled={isSubmitting || !email.trim()}
                 whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
                 whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-                className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+                className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white py-3 md:py-3 px-6 rounded-lg font-semibold transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2 text-base"
               >
                 {isSubmitting ? (
                   <>

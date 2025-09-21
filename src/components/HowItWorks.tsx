@@ -1,10 +1,16 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Upload, Brain, Zap, CheckCircle } from 'lucide-react';
+import ContactModal from './ContactModal';
 
 const HowItWorks: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
   const steps = [
     {
       number: "01",
@@ -57,24 +63,24 @@ const HowItWorks: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-green-50 to-white">
+    <section className="py-12 md:py-20 bg-gradient-to-br from-green-50 to-white">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
             How it <span className="text-green-600">works</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4">
             A simple 4-step process to create your perfect digital clone
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
           {steps.map((step, index) => (
             <motion.div
               key={index}
@@ -171,12 +177,23 @@ const HowItWorks: React.FC = () => {
             <p className="text-gray-600 mb-6">
               The complete process takes only 2-3 weeks. Your digital clone will be ready to work.
             </p>
-            <button className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-300">
+            <button 
+              onClick={handleOpenModal}
+              className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-300"
+            >
               Start Process
             </button>
           </div>
         </motion.div>
       </div>
+
+      {/* Contact Modal */}
+      <ContactModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        title="Start Your Digital Clone Process"
+        description="The complete process takes only 2-3 weeks. Your digital clone will be ready to work."
+      />
     </section>
   );
 };

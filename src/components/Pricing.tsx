@@ -3,9 +3,17 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Check, X, Star, ArrowRight } from 'lucide-react';
+import ContactModal from './ContactModal';
 
 const Pricing: React.FC = () => {
   const [isAnnual, setIsAnnual] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalType, setModalType] = useState<'plan' | 'consultation'>('plan');
+
+  const handleOpenModal = (type: 'plan' | 'consultation') => {
+    setModalType(type);
+    setIsModalOpen(true);
+  };
 
   const plans = [
     {
@@ -81,43 +89,21 @@ const Pricing: React.FC = () => {
     }
   ];
 
-  const addOns = [
-    {
-      name: "Additional Conversations",
-      description: "Package of 1,000 extra conversations",
-      price: 99
-    },
-    {
-      name: "Custom Integration",
-      description: "Development of specific integration for your system",
-      price: 299
-    },
-    {
-      name: "Dedicated Support",
-      description: "Assignment of a dedicated specialist to your account",
-      price: 199
-    },
-    {
-      name: "Advanced Training",
-      description: "Custom training sessions for your team",
-      price: 149
-    }
-  ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-green-50 to-white">
+    <section className="py-12 md:py-20 bg-gradient-to-br from-green-50 to-white">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
             Pricing <span className="text-green-600">plans</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-6 md:mb-8 px-4">
             Choose the plan that best fits your company's needs
           </p>
           
@@ -150,7 +136,7 @@ const Pricing: React.FC = () => {
         </motion.div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
           {plans.map((plan, index) => (
             <motion.div
               key={index}
@@ -205,11 +191,14 @@ const Pricing: React.FC = () => {
                 </div>
 
                 {/* CTA Button */}
-                <button className={`w-full py-4 rounded-lg font-semibold text-lg transition-colors duration-300 ${
-                  plan.popular
-                    ? 'bg-green-600 hover:bg-green-700 text-white'
-                    : 'bg-white text-gray-900 border-2 border-gray-300 hover:border-green-600 hover:text-green-600'
-                }`}>
+                <button 
+                  onClick={() => handleOpenModal('plan')}
+                  className={`w-full py-4 rounded-lg font-semibold text-lg transition-colors duration-300 ${
+                    plan.popular
+                      ? 'bg-green-600 hover:bg-green-700 text-white'
+                      : 'bg-white text-gray-900 border-2 border-gray-300 hover:border-green-600 hover:text-green-600'
+                  }`}
+                >
                   {plan.name === 'Enterprise' ? 'Contact Sales' : 'Get Started Now'}
                 </button>
               </div>
@@ -217,46 +206,13 @@ const Pricing: React.FC = () => {
           ))}
         </div>
 
-        {/* Add-ons Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
-          <h3 className="text-3xl font-bold text-center text-gray-900 mb-8">
-            Additional <span className="text-green-600">services</span>
-          </h3>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {addOns.map((addOn, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow duration-300"
-              >
-                <h4 className="text-lg font-semibold text-gray-900 mb-2">{addOn.name}</h4>
-                <p className="text-gray-600 text-sm mb-4">{addOn.description}</p>
-                <div className="text-2xl font-bold text-green-600 mb-4">${addOn.price}</div>
-                <button className="w-full py-2 border border-green-600 text-green-600 hover:bg-green-600 hover:text-white rounded-lg transition-colors duration-300">
-                  Agregar
-                </button>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
         {/* FAQ Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100"
+          className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 mb-16"
         >
           <h3 className="text-3xl font-bold text-center text-gray-900 mb-8">
             Frequently Asked <span className="text-green-600">Questions</span>
@@ -298,13 +254,27 @@ const Pricing: React.FC = () => {
             <p className="text-green-100 text-lg mb-6 max-w-2xl mx-auto">
               Our team of experts will help you choose the perfect plan for your company
             </p>
-            <button className="bg-white text-green-600 hover:bg-green-50 px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-300 flex items-center mx-auto group">
+            <button 
+              onClick={() => handleOpenModal('consultation')}
+              className="bg-white text-green-600 hover:bg-green-50 px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-300 flex items-center mx-auto group"
+            >
               Consult with an Expert
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
         </motion.div>
       </div>
+
+      {/* Contact Modal */}
+      <ContactModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        title={modalType === 'plan' ? 'Get Started with Your Plan' : 'Consult with an Expert'}
+        description={modalType === 'plan' 
+          ? 'Choose the perfect plan for your business and start your digital clone journey today.'
+          : 'Our team of experts will help you choose the perfect plan for your company and answer any questions you have.'
+        }
+      />
     </section>
   );
 };

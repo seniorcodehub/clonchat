@@ -23,7 +23,6 @@ const Footer: React.FC = () => {
       { name: 'How It Works', href: '#how-it-works' },
       { name: 'Use Cases', href: '#use-cases' },
       { name: 'Benefits', href: '#benefits' },
-      { name: 'Testimonials', href: '#testimonials' },
       { name: 'Pricing', href: '#pricing' }
     ],
     company: [
@@ -47,8 +46,8 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-gray-900 text-white">
       {/* Main Footer */}
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+      <div className="container mx-auto px-4 py-12 md:py-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {/* Company Info */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -58,24 +57,24 @@ const Footer: React.FC = () => {
             className="lg:col-span-1"
           >
             <Logo />
-            <p className="text-gray-300 mt-6 mb-6 leading-relaxed">
+            <p className="text-gray-300 mt-4 md:mt-6 mb-4 md:mb-6 leading-relaxed text-sm md:text-base">
               We revolutionize the way companies interact with their customers 
               through intelligent digital clones that work 24/7.
             </p>
             
             {/* Contact Info */}
-            <div className="space-y-3">
+            <div className="space-y-2 md:space-y-3">
               <div className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-green-500" />
-                <span className="text-gray-300">info@clonchat.com</span>
+                <Mail className="w-4 h-4 md:w-5 md:h-5 text-green-500" />
+                <span className="text-gray-300 text-sm md:text-base">info@clonchat.com</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Phone className="w-5 h-5 text-green-500" />
-                <span className="text-gray-300">+1 (555) 123-4567</span>
+                <Phone className="w-4 h-4 md:w-5 md:h-5 text-green-500" />
+                <span className="text-gray-300 text-sm md:text-base">+1 (555) 123-4567</span>
               </div>
               <div className="flex items-center space-x-3">
-                <MapPin className="w-5 h-5 text-green-500" />
-                <span className="text-gray-300">San Francisco, CA</span>
+                <MapPin className="w-4 h-4 md:w-5 md:h-5 text-green-500" />
+                <span className="text-gray-300 text-sm md:text-base">San Francisco, CA</span>
               </div>
             </div>
           </motion.div>

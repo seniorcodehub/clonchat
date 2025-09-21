@@ -4,7 +4,6 @@ import ProblemSolution from '@/components/ProblemSolution';
 import HowItWorks from '@/components/HowItWorks';
 import UseCases from '@/components/UseCases';
 import Benefits from '@/components/Benefits';
-import Testimonials from '@/components/Testimonials';
 import Pricing from '@/components/Pricing';
 import Footer from '@/components/Footer';
 
@@ -26,9 +25,6 @@ export default function Home() {
       </div>
       <div id="benefits">
         <Benefits />
-      </div>
-      <div id="testimonials">
-        <Testimonials />
       </div>
       <div id="pricing">
         <Pricing />
